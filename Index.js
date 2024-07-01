@@ -31,26 +31,18 @@ function repeat(n){
     let widthString =  width.toString().concat("px");
     container.style.height = heigthString;
     container.style.width = widthString;
-    
-    function randomColor(){
-        return Math.floor(Math.random()*256)
-    }
-    function randomRGB(){
-        return `rgb(${randomColor()},${randomColor()},${randomColor()})`
-    }
-    
 
     function changeColour(){
         const square = document.querySelectorAll(".square")
         for(let i = 0; i < square.length; i++){
-            square[i].style.borderColor= randomRGB()
+            square[i].style.border = "blue dotted 1px"
         }
         
     }
     function revertColour(){
         const square = document.querySelectorAll(".square")
         for(let i = 0; i < square.length; i++){
-            square[i].style.borderColor= "black"
+            square[i].style.border= "black solid 1px"
         }
     }
     
