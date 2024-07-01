@@ -24,7 +24,7 @@ function repeat(n){
         height = n*18
         width = n*18
     }
-    
+
     container.innerHTML = repeatSquare;
     const square = document.querySelectorAll(".square")
     let heigthString =  height.toString().concat("px");
