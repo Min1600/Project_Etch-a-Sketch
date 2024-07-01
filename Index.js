@@ -23,9 +23,12 @@ function repeat(n){
        newDiv.setAttribute("class", "square");
         height = n*18
         width = n*18
+       newDiv.addEventListener("mouseover", () => newDiv.style.borderColor="blue")
+       newDiv.addEventListener("mouseout", () => newDiv.style.borderColor="black")
         container.appendChild(newDiv);
 
     }
+    
     let heigthString =  height.toString().concat("px");
     let widthString =  width.toString().concat("px");
     container.style.height = heigthString;
