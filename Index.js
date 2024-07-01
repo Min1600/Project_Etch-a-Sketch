@@ -20,20 +20,21 @@ function repeat(n){
     let width = 1;
     for (let i=0; i<n*n; i++){
        const newDiv= document.createElement("div")
-       newDiv.classList.add("square");
+       newDiv.setAttribute("class", "square");
         height = n*18
         width = n*18
         container.appendChild(newDiv);
-      
+
     }
-    
     let heigthString =  height.toString().concat("px");
     let widthString =  width.toString().concat("px");
     container.style.height = heigthString;
     container.style.width = widthString;
     
 }
-
+function resetGrid(){
+    document.querySelectorAll(".square").forEach(e => e.remove());
+}
 function makeGrid(){
     repeat(choice())
 }
