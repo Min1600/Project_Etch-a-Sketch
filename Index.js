@@ -16,44 +16,22 @@ function choice(){
 }
 
 function repeat(n){
-    let repeatSquare = ""
     let height = 1;
     let width = 1;
     for (let i=0; i<n*n; i++){
-        repeatSquare += '<div class="square"></div>';
+       const newDiv= document.createElement("div")
+       newDiv.classList.add("square");
         height = n*18
         width = n*18
+        container.appendChild(newDiv);
+      
     }
     
-    container.innerHTML = repeatSquare;
-    const square = document.querySelectorAll(".square")
     let heigthString =  height.toString().concat("px");
     let widthString =  width.toString().concat("px");
     container.style.height = heigthString;
     container.style.width = widthString;
     
-
-    function changeColour(){
-        const square = document.querySelectorAll(".square")
-        for(let i = 0; i < square.length; i++){
-            square[i].style.border= "dotted blue 1px"
-        }
-        
-    }
-    function revertColour(){
-        const square = document.querySelectorAll(".square")
-        for(let i = 0; i < square.length; i++){
-            square[i].style.border= "solid black 1px"
-        }
-    }
-    
-    for(let i = 0; i < square.length; i++){
-        square[i].addEventListener("mouseover", changeColour)
-    }
-    for(let i = 0; i < square.length; i++){
-        square[i].addEventListener("mouseout", revertColour)
-    }
-   
 }
 
 function makeGrid(){
