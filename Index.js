@@ -1,4 +1,5 @@
 
+
 const container = document.querySelector(".container")
 const buttonGrid = document.querySelector(".btn")
 
@@ -32,18 +33,25 @@ function repeat(n){
     container.style.height = heigthString;
     container.style.width = widthString;
     
+    function randomColor(){
+        return Math.floor(Math.random()*256)
+    }
+    function randomRGB(){
+        return `rgb(${randomColor()},${randomColor()},${randomColor()})`
+    }
+    
 
     function changeColour(){
         const square = document.querySelectorAll(".square")
         for(let i = 0; i < square.length; i++){
-            square[i].style.border= "dotted blue 1px"
+            square[i].style.borderColor= randomRGB()
         }
         
     }
     function revertColour(){
         const square = document.querySelectorAll(".square")
         for(let i = 0; i < square.length; i++){
-            square[i].style.border= "solid black 1px"
+            square[i].style.borderColor= "black"
         }
     }
     
@@ -59,6 +67,10 @@ function repeat(n){
 function makeGrid(){
     repeat(choice())
 }
+
+
+
+
 
 
 
