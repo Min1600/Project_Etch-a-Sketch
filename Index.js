@@ -1,0 +1,64 @@
+
+const container = document.querySelector(".container")
+const buttonGrid = document.querySelector(".btn")
+
+buttonGrid.addEventListener("click", makeGrid)
+
+function choice(){
+
+    let gridSize = prompt("Input desired grid size");
+    if(gridSize <= 100){
+        return gridSize
+    }else{
+        alert("Grid size cannot be larger than 100 x 100")
+        return choice()
+    }
+}
+
+function repeat(n){
+    let repeatSquare = ""
+    let height = 1;
+    let width = 1;
+    for (let i=0; i<n*n; i++){
+        repeatSquare += '<div class="square"></div>';
+        height = n*18
+        width = n*18
+    }
+    
+    container.innerHTML = repeatSquare;
+    const square = document.querySelectorAll(".square")
+    let heigthString =  height.toString().concat("px");
+    let widthString =  width.toString().concat("px");
+    container.style.height = heigthString;
+    container.style.width = widthString;
+    
+
+    function changeColour(){
+        const square = document.querySelectorAll(".square")
+        for(let i = 0; i < square.length; i++){
+            square[i].style.border= "dotted blue 1px"
+        }
+        
+    }
+    function revertColour(){
+        const square = document.querySelectorAll(".square")
+        for(let i = 0; i < square.length; i++){
+            square[i].style.border= "solid black 1px"
+        }
+    }
+    
+    for(let i = 0; i < square.length; i++){
+        square[i].addEventListener("mouseover", changeColour)
+    }
+    for(let i = 0; i < square.length; i++){
+        square[i].addEventListener("mouseout", revertColour)
+    }
+   
+}
+
+function makeGrid(){
+    repeat(choice())
+}
+
+
+
