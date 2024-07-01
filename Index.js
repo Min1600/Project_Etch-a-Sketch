@@ -1,6 +1,19 @@
 
 const container = document.querySelector(".container")
+const buttonGrid = document.querySelector(".btn")
 
+buttonGrid.addEventListener("click", makeGrid)
+
+function choice(){
+
+    let gridSize = prompt("Input desired grid size");
+    if(gridSize <= 100){
+        return gridSize
+    }else{
+        alert("Grid size cannot be larger than 100 x 100")
+        return choice()
+    }
+}
 
 function repeat(n){
     let repeatSquare = ""
@@ -11,15 +24,41 @@ function repeat(n){
         height = n*18
         width = n*18
     }
+    
     container.innerHTML = repeatSquare;
-    let heigthString =  height.toString()
-    let heigthFinal = heigthString.concat("px")
-    let widthString =  width.toString()
-    let widthFinal = widthString.concat("px")
-    container.style.height = heigthFinal
-    container.style.width = widthFinal 
+    const square = document.querySelectorAll(".square")
+    let heigthString =  height.toString().concat("px");
+    let widthString =  width.toString().concat("px");
+    container.style.height = heigthString;
+    container.style.width = widthString;
+    
 
+    function changeColour(){
+        const square = document.querySelectorAll(".square")
+        for(let i = 0; i < square.length; i++){
+            square[i].style.border= "dotted blue 1px"
+        }
+        
+    }
+    function revertColour(){
+        const square = document.querySelectorAll(".square")
+        for(let i = 0; i < square.length; i++){
+            square[i].style.border= "solid black 1px"
+        }
+    }
+    
+    for(let i = 0; i < square.length; i++){
+        square[i].addEventListener("mouseover", changeColour)
+    }
+    for(let i = 0; i < square.length; i++){
+        square[i].addEventListener("mouseout", revertColour)
+    }
+   
 }
 
-repeat(10)
+function makeGrid(){
+    repeat(choice())
+}
+
+
 
