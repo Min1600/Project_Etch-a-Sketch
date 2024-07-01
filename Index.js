@@ -55,7 +55,7 @@ function repeat(n){
     }
    
 }
-
+repeat(16)
 function makeGrid(){
     repeat(choice())
 }
